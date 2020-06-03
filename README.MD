@@ -16,3 +16,26 @@ Input　　    Output             Instruction
 1 1 2 3      Wrong Input，Input again
 1 2            Wrong Input，Input again
 答案在游戏开始时随机生成。输入只有6次机会，在每次猜测时，程序应给出当前猜测的结果，以及之前所有猜测的数字和结果以供玩家参考。
+
+
+## Tasking
+guess number
+- given Game with answer 1 2 3 4, when input 1 5 6 7, then output 1A0B
+- given Game with answer 1 2 3 4, when input 2 4 7 8, then output 0A2B
+- given Game with answer 1 2 3 4, when input 0 3 2 4, then output 1A2B
+- given Game with answer 1 2 3 4, when input 1 2 3 4, then output 4A0B
+
+validate input
+- given Game with answer 1 2 3 4, when input 1 1 2 3, then output Wrong Input，Input again
+- given Game with answer 1 2 3 4, when input 1 2, then output Wrong Input，Input again
+
+end game
+- give Game with answer 1 2 3 4, when input 1 2 3 4, then success
+- give Game with answer 1 2 3 4 and 6 chances left to guess, when input 1 2 5 8, then user can try again, the chances left will be 5
+- give Game with answer 1 2 3 4 and 1 chances left to guess, when input 1 2 5 8, then failed
+
+guess history
+- given Game with answer 1 2 3 4 and 1 not succeed guess with input 1 5 6 7, when input 2 4 7 8, then output 0A2B and history 1 5 6 7  1A0B\n
+
+generate answer
+  
