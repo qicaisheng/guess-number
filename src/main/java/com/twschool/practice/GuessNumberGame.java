@@ -1,6 +1,8 @@
 package com.twschool.practice;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GuessNumberGame {
     private String[] answer;
@@ -11,6 +13,9 @@ public class GuessNumberGame {
 
     public String guess(String number) {
         String[] answerFromUser = number.split(" ");
+        if (!validateFormatSucceed(answerFromUser)) {
+            return "Wrong Input，Input again";
+        }
         int numberA = 0;
         int numberB = 0;
         for (int index = 0; index < this.answer.length; index ++) {
@@ -22,5 +27,10 @@ public class GuessNumberGame {
         }
         
         return numberA + "A" + numberB + "B";
+    }
+
+    private boolean validateFormatSucceed(String[] answerFromUser) {
+        Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
+        return answerSetFromUser.size() == answer.length;
     }
 }
