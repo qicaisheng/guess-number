@@ -13,4 +13,32 @@ public class GuessNumberGameTest {
 
         Assert.assertEquals("1A0B", result);
     }
+
+    @Test
+    public void should_output_0A2B_when_input_2478_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1234");
+
+        String result = guessNumberGame.guess("2 4 7 8");
+
+        Assert.assertEquals("0A2B", result);
+    }
+
+    @Test
+    public void should_output_1A2B_when_input_0324_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1234");
+
+        String result = guessNumberGame.guess("0 3 2 4");
+
+        Assert.assertEquals("1A2B", result);
+    }
+
+    @Test
+    public void should_output_4A0B_when_input_1234_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1234");
+
+        String result = guessNumberGame.guess("1 2 3 4");
+
+        Assert.assertEquals("4A0B", result);
+    }
+
 }
