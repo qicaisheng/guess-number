@@ -1,5 +1,8 @@
 package com.twschool.practice;
 
+import com.twschool.practice.domain.Answer;
+import com.twschool.practice.domain.AnswerGenerator;
+import com.twschool.practice.domain.AnswerGeneratorImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

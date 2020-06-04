@@ -1,5 +1,6 @@
 package com.twschool.practice;
 
+import com.twschool.practice.domain.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

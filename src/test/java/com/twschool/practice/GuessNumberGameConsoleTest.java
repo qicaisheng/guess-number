@@ -1,6 +1,8 @@
 package com.twschool.practice;
 
 import com.twschool.practice.console.GuessNumberGameConsole;
+import com.twschool.practice.domain.Answer;
+import com.twschool.practice.domain.GuessNumberGame;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

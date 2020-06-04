@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ public class Answer {
         return answerNumbers;
     }
     
-    CompareResult compareWith(Answer answer) {
+    public CompareResult compareWith(Answer answer) {
         List<String> answerFromUser = answer.getAnswerNumbers();
         CompareResult compareResult = new CompareResult();
         for (int index = 0; index < ANSWER_NUMBER; index ++) {
@@ -41,7 +41,7 @@ public class Answer {
         return getAnswerNumbers().contains(value);
     }
 
-    boolean isValidFormat() {
+    public boolean isValidFormat() {
         Set<String> answerSetFromUser = new HashSet<>(getAnswerNumbers());
         return answerSetFromUser.size() == ANSWER_NUMBER;
     }

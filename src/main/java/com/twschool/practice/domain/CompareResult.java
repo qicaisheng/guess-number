@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.domain;
 
 public class CompareResult {
     private int valueAndPositionCorrectNumber;

@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.domain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.domain;
 
 public class GuessHistory {
     private Answer inputAnswer;

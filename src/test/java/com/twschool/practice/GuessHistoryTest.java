@@ -1,5 +1,8 @@
 package com.twschool.practice;
 
+import com.twschool.practice.domain.Answer;
+import com.twschool.practice.domain.CompareResult;
+import com.twschool.practice.domain.GuessHistory;
 import org.junit.Assert;
 import org.junit.Test;
 
