@@ -16,10 +16,11 @@ public class GuessNumberGame {
         if (!validateFormatSucceed(answerFromUser)) {
             return "Wrong Input，Input again";
         }
-        return compareAnswerWith(answerFromUser);
+        CompareResult compareResult = compareAnswerWith(answerFromUser);
+        return compareResult.toString();
     }
 
-    private String compareAnswerWith(String[] answerFromUser) {
+    private CompareResult compareAnswerWith(String[] answerFromUser) {
         int numberA = 0;
         int numberB = 0;
         for (int index = 0; index < this.answer.length; index ++) {
@@ -30,7 +31,7 @@ public class GuessNumberGame {
             }
         }
 
-        return new CompareResult(numberA, numberB).toString();
+        return new CompareResult(numberA, numberB);
     }
 
     private boolean validateFormatSucceed(String[] answerFromUser) {
