@@ -14,17 +14,7 @@ public class GuessNumberGame {
     public GuessNumberGame(String answer) {
         this.answer = new Answer(answer);
     }
-
-    public String guess(String number) {
-        Answer answerFromUser = new Answer(number);
-        try {
-            CompareResult compareResult = guess(answerFromUser);
-            return compareResult.toString();
-        } catch (InputFormatException e) {
-            return "Wrong Input，Input again";
-        }
-    }
-
+    
     public CompareResult guess(Answer answerFromUser) {
         if (!answerFromUser.isValidFormat()) {
             throw new InputFormatException();
