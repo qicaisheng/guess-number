@@ -14,7 +14,9 @@ public class GuessNumberGameTest {
 
     @Before
     public void setUp() throws Exception {
-        guessNumberGame = new GuessNumberGame(() -> new Answer("1 2 3 4"));
+        AnswerGeneratorImpl answerGenerator = Mockito.mock(AnswerGeneratorImpl.class);
+        Mockito.when(answerGenerator.generateAnswer()).thenReturn(new Answer("1 2 3 4"));
+        guessNumberGame = new GuessNumberGame(answerGenerator);
     }
 
     @Test
