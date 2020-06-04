@@ -9,8 +9,8 @@ public class GuessNumberGameConsole {
     private static final String INPUT_TIPS = "Please guess:";
     private static final String NEW_LINE = "\n";
     private static final String LOSE_MESSAGE = "You failed!";
-    public static final String GUESS_RESULT_FORMAT = "Result: %s";
-    public static final String GUESS_HISTORIES_FORMAT = "Histories: %s";
+    private static final String GUESS_RESULT_FORMAT = "Result: %s";
+    private static final String GUESS_HISTORIES_FORMAT = "Histories: %s";
     private GuessNumberGame guessNumberGame;
     private ConsoleInputReader consoleInputReader;
 
@@ -35,7 +35,7 @@ public class GuessNumberGameConsole {
         }
         if (this.guessNumberGame.getStatus() == GameStatus.SUCCEED) {
             System.out.println(WINNING_MESSAGE);
-        } else if (this.guessNumberGame.getStatus() == GameStatus.SUCCEED) {
+        } else if (this.guessNumberGame.getStatus() == GameStatus.FAILED) {
             System.out.println(LOSE_MESSAGE);
         }
     }
