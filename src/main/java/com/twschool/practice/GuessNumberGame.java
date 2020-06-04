@@ -9,7 +9,7 @@ public class GuessNumberGame {
     private Answer answer;
     private int tryTimes = MAX_TRY_TIMES;
 
-    private List<GameHistory> gameHistories = new ArrayList<>();
+    private List<GuessHistory> guessHistories = new ArrayList<>();
 
     public GuessNumberGame(String answer) {
         this.answer = new Answer(answer);
@@ -27,20 +27,20 @@ public class GuessNumberGame {
     private CompareResult guess(Answer answerFromUser) {
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
-        gameHistories.add(new GameHistory(answerFromUser, compareResult));
+        guessHistories.add(new GuessHistory(answerFromUser, compareResult));
         return compareResult;
     }
 
-    public List<GameHistory> getGameHistories() {
-        return gameHistories;
+    public List<GuessHistory> getGuessHistories() {
+        return guessHistories;
     }
 
     public String getGameHistoriesString() {
-        return gameHistories.stream().map(gameHistory -> "\n" + gameHistory.toString()).collect(Collectors.joining());
+        return guessHistories.stream().map(guessHistory -> "\n" + guessHistory.toString()).collect(Collectors.joining());
     }
 
     public GameStatus getStatus() {
-        List<GameHistory> gameHistories = getGameHistories();
+        List<GuessHistory> gameHistories = getGuessHistories();
         if (gameHistories.isEmpty()) {
             return GameStatus.PENDING;
         }

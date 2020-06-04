@@ -2,12 +2,12 @@ package com.twschool.practice;
 
 import java.util.Arrays;
 
-public class GameHistory {
+public class GuessHistory {
     private Answer inputAnswer;
 
     private CompareResult compareResult;
 
-    public GameHistory(Answer inputAnswer, CompareResult compareResult) {
+    public GuessHistory(Answer inputAnswer, CompareResult compareResult) {
         this.inputAnswer = inputAnswer;
         this.compareResult = compareResult;
     }
