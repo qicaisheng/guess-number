@@ -28,5 +28,22 @@ public class GuessNumberCommandGameTest {
         Assert.assertEquals("Wrong Input，Input again", result);
     }
 
+    @Test
+    public void should_output_4A0B_when_input_1234_given_game_with_answer_1234() {
+        String result = guessNumberCommandGame.guess("1 2 3 4");
+
+        Assert.assertEquals("4A0B", result);
+    }
+
+    @Test
+    public void should_output_history_when_input_2478_given_game_with_answer_1234() {
+        guessNumberCommandGame.guess("1 5 6 7");
+        guessNumberCommandGame.guess("2 4 7 8");
+        
+        String histories = guessNumberCommandGame.getHistories();
+        
+        Assert.assertEquals("\n1 5 6 7        1A0B\n2 4 7 8        0A2B", histories);
+    }
+
 
 }

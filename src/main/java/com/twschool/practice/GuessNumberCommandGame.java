@@ -17,4 +17,7 @@ public class GuessNumberCommandGame {
         }
     }
 
+    public String getHistories() {
+        return this.guessNumberGame.getGameHistoriesString();
+    }
 }
