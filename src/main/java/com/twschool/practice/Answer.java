@@ -19,18 +19,18 @@ public class Answer {
 
     CompareResult compareWith(Answer answer) {
         String[] answerFromUser = answer.getAnswer();
-        int numberA = 0;
-        int numberB = 0;
+        int valueAndPositionCorrectNumber = 0;
+        int valueCorrectButPositionIncorrectNumber = 0;
         for (int index = 0; index < ANSWER_NUMBER; index ++) {
             boolean valueAndPositionCorrect = getAnswer()[index].equals(answerFromUser[index]);
             if (valueAndPositionCorrect) {
-                numberA ++;
+                valueAndPositionCorrectNumber ++;
             } else if (contains(answerFromUser[index])) {
-                numberB ++;
+                valueCorrectButPositionIncorrectNumber ++;
             }
         }
 
-        return new CompareResult(numberA, numberB);
+        return new CompareResult(valueAndPositionCorrectNumber, valueCorrectButPositionIncorrectNumber);
     }
 
     private boolean contains(String value) {
