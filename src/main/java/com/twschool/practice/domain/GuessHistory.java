@@ -21,4 +21,8 @@ public class GuessHistory {
     public CompareResult getCompareResult() {
         return compareResult;
     }
+
+    public Answer getInputAnswer() {
+        return inputAnswer;
+    }
 }

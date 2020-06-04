@@ -1,12 +1,12 @@
 package com.twschool.practice.api;
 
-public class AnswerRequest {
+public class AnswerDto {
     private String number;
 
-    public AnswerRequest() {
+    public AnswerDto() {
     }
 
-    public AnswerRequest(String number) {
+    public AnswerDto(String number) {
         this.number = number;
     }
 
