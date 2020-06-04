@@ -17,12 +17,16 @@ public class GuessNumberGame {
         }
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
+        setGameStatus(compareResult);
+        return compareResult.toString();
+    }
+
+    private void setGameStatus(CompareResult compareResult) {
         if (compareResult.isSucceed()) {
             this.status = GameStatus.SUCCEED;
         } else if (getTryTimes() == 0) {
             this.status = GameStatus.FAILED;
         }
-        return compareResult.toString();
     }
 
     public GameStatus getStatus() {
