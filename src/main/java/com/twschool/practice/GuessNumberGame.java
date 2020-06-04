@@ -20,10 +20,15 @@ public class GuessNumberGame {
         if (!answerFromUser.isValidFormat()) {
             return "Wrong Input，Input again";
         }
+        CompareResult compareResult = guess(answerFromUser);
+        return compareResult.toString();
+    }
+
+    private CompareResult guess(Answer answerFromUser) {
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         gameHistories.add(new GameHistory(answerFromUser, compareResult));
-        return compareResult.toString();
+        return compareResult;
     }
 
     public List<GameHistory> getGameHistories() {
