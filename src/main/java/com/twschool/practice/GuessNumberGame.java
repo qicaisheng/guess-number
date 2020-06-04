@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 public class GuessNumberGame {
     private static final int MAX_TRY_TIMES = 6;
     private Answer answer;
-    private GameStatus status = GameStatus.PENDING;
     private int tryTimes = MAX_TRY_TIMES;
 
     private List<GameHistory> gameHistories = new ArrayList<>();
@@ -23,17 +22,8 @@ public class GuessNumberGame {
         }
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
-        setGameStatus(compareResult);
         gameHistories.add(new GameHistory(answerFromUser, compareResult));
         return compareResult.toString();
-    }
-
-    private void setGameStatus(CompareResult compareResult) {
-        if (compareResult.isSucceed()) {
-            this.status = GameStatus.SUCCEED;
-        } else if (getTryTimes() == 0) {
-            this.status = GameStatus.FAILED;
-        }
     }
 
     public List<GameHistory> getGameHistories() {
