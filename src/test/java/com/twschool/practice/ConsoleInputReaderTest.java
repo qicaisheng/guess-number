@@ -1,11 +1,12 @@
 package com.twschool.practice;
 
 import com.twschool.practice.console.ConsoleInputReader;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConsoleInputReaderTest {
     @Test
@@ -17,6 +18,6 @@ public class ConsoleInputReaderTest {
         System.setIn(in);
         String input = reader.getInput();
         
-        Assert.assertEquals(expected, input);
+        assertEquals(expected, input);
     }
 }

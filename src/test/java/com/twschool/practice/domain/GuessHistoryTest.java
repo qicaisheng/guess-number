@@ -1,7 +1,8 @@
 package com.twschool.practice.domain;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class GuessHistoryTest {
@@ -10,6 +11,6 @@ public class GuessHistoryTest {
     public void should_get_history_string() {
         GuessHistory guessHistory = new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2));
 
-        Assert.assertEquals("2 4 7 8        0A2B", guessHistory.toString());
+        assertEquals("2 4 7 8        0A2B", guessHistory.toString());
     }
 }

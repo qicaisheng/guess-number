@@ -1,7 +1,8 @@
 package com.twschool.practice.domain;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RandomAnswerGeneratorTest {
 
@@ -11,6 +12,6 @@ public class RandomAnswerGeneratorTest {
         
         Answer answer = answerGenerator.generateAnswer();
 
-        Assert.assertTrue(answer.isValidFormat());
+        assertTrue(answer.isValidFormat());
     }
 }
