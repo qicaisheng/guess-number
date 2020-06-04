@@ -1,10 +1,15 @@
 package com.twschool.practice;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class GuessNumberGame {
     private static final int MAX_TRY_TIMES = 6;
     private Answer answer;
     private GameStatus status = GameStatus.PENDING;
     private int tryTimes = MAX_TRY_TIMES;
+    private List<GameHistory> gameHistories = new ArrayList<>();
 
     public GuessNumberGame(String answer) {
         this.answer = new Answer(answer);
@@ -18,7 +23,9 @@ public class GuessNumberGame {
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         setGameStatus(compareResult);
-        return compareResult.toString();
+        gameHistories.add(new GameHistory(answerFromUser, compareResult));
+        String histories = gameHistories.stream().map(gameHistory -> "\n" + gameHistory.toString()).collect(Collectors.joining());
+        return compareResult.toString() + histories;
     }
 
     private void setGameStatus(CompareResult compareResult) {

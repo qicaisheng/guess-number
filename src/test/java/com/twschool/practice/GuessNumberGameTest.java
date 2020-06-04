@@ -98,4 +98,15 @@ public class GuessNumberGameTest {
 
         Assert.assertEquals(GameStatus.FAILED, guessNumberGame.getStatus());
     }
+
+    @Test
+    public void should_output_result_and_history_when_input_2478_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+        guessNumberGame.guess("1 5 6 7");
+        
+        String result = guessNumberGame.guess("2 4 7 8");
+
+        Assert.assertEquals("0A2B\n1 5 6 7        1A0B\n2 4 7 8        0A2B", result);
+    }
+
 }
