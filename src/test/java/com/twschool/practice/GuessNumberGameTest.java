@@ -59,4 +59,20 @@ public class GuessNumberGameTest {
         Assert.assertEquals("Wrong Input，Input again", result);
     }
 
+    @Test
+    public void should_be_init_pending_status_given_game() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+        
+        Assert.assertEquals(GameStatus.PENDING, guessNumberGame.getStatus());
+    }
+
+
+    @Test
+    public void should_be_succeed_when_input_1234_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+
+        guessNumberGame.guess("1 2 3 4");
+        
+        Assert.assertEquals(GameStatus.SUCCEED, guessNumberGame.getStatus());
+    }
 }
