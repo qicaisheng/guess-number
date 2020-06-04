@@ -15,7 +15,7 @@ public class GuessNumberGameController {
     @Autowired
     private GuessNumberGameService guessNumberGameService;
     
-    @PostMapping
+    @PostMapping("/compare-results")
     public CompareResultDto guess(@RequestBody AnswerDto answerDto) {
         Answer answer = new Answer(Arrays.asList(answerDto.getNumber().split(" ")));
         return CompareResultDto.buildFrom(guessNumberGameService.guess(answer));

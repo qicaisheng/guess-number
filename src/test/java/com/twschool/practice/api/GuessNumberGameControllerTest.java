@@ -46,7 +46,7 @@ public class GuessNumberGameControllerTest {
                 .contentType(ContentType.JSON)
                 .body(new AnswerDto("1 2 3 4"))
                 .when()
-                .post(uri + "/guess-number")
+                .post(uri + "/guess-number/compare-results")
         .then()
                 .assertThat()
                 .body("valueAndPositionCorrectNumber", equalTo(1))
