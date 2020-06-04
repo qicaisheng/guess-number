@@ -1,4 +1,6 @@
-package com.twschool.practice.console;
+package com.twschool.practice;
+
+import com.twschool.practice.console.GuessNumberGameConsole;
 
 public class GuessNumberGameConsoleApp {
 
