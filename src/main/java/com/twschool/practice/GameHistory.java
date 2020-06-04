@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class GameHistory {
     private Answer inputAnswer;
+
     private CompareResult compareResult;
 
     public GameHistory(Answer inputAnswer, CompareResult compareResult) {
@@ -17,5 +18,9 @@ public class GameHistory {
         String result = compareResult.toString();
         String whiteSpaces = "        ";
         return inputAnswer + whiteSpaces + result;
+    }
+
+    public CompareResult getCompareResult() {
+        return compareResult;
     }
 }
