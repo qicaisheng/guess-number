@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class Answer {
 
+    public static final int ANSWER_NUMBER = 4;
     private String[] answer;
 
     public Answer(String answer) {
@@ -31,9 +32,9 @@ public class Answer {
         return new CompareResult(numberA, numberB);
     }
 
-    boolean validateFormatSucceed(Answer answer) {
+    static boolean validateFormatSucceed(Answer answer) {
         String[] answerFromUser = answer.getAnswer();
         Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
-        return answerSetFromUser.size() == getAnswer().length;
+        return answerSetFromUser.size() == ANSWER_NUMBER;
     }
 }
