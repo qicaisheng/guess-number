@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.domain;
 
 import com.twschool.practice.domain.*;
 import org.junit.Assert;
@@ -15,7 +15,7 @@ public class GuessNumberGameTest {
 
     @Before
     public void setUp() throws Exception {
-        AnswerGeneratorImpl answerGenerator = Mockito.mock(AnswerGeneratorImpl.class);
+        RandomAnswerGenerator answerGenerator = Mockito.mock(RandomAnswerGenerator.class);
         Mockito.when(answerGenerator.generateAnswer()).thenReturn(new Answer("1 2 3 4"));
         guessNumberGame = new GuessNumberGame(answerGenerator);
     }

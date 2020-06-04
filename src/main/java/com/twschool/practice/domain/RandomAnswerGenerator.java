@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AnswerGeneratorImpl implements AnswerGenerator {
-    public AnswerGeneratorImpl() {
+public class RandomAnswerGenerator implements AnswerGenerator {
+    public RandomAnswerGenerator() {
     }
 
     @Override

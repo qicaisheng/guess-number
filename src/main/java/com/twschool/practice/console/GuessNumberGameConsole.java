@@ -17,7 +17,7 @@ public class GuessNumberGameConsole {
     private ConsoleInputReader consoleInputReader;
 
     public GuessNumberGameConsole() {
-        this.guessNumberGame = new GuessNumberGame(new AnswerGeneratorImpl());
+        this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
         this.consoleInputReader = new ConsoleInputReader();
     }
 
