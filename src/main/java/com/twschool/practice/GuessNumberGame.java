@@ -17,14 +17,18 @@ public class GuessNumberGame {
 
     public String guess(String number) {
         Answer answerFromUser = new Answer(number);
-        if (!answerFromUser.isValidFormat()) {
+        try {
+            CompareResult compareResult = guess(answerFromUser);
+            return compareResult.toString();
+        } catch (InputFormatException e) {
             return "Wrong Input，Input again";
         }
-        CompareResult compareResult = guess(answerFromUser);
-        return compareResult.toString();
     }
 
     private CompareResult guess(Answer answerFromUser) {
+        if (!answerFromUser.isValidFormat()) {
+            throw new InputFormatException();
+        }
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         guessHistories.add(new GuessHistory(answerFromUser, compareResult));
