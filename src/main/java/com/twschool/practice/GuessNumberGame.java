@@ -15,9 +15,9 @@ public class GuessNumberGame {
     
     public CompareResult guess(Answer answerFromUser) {
         validateFormat(answerFromUser);
-        decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
-        guessHistories.add(new GuessHistory(answerFromUser, compareResult));
+        addHistory(answerFromUser, compareResult);
+        decreaseTryTimes();
         return compareResult;
     }
 
@@ -50,5 +50,10 @@ public class GuessNumberGame {
         if (!answerFromUser.isValidFormat()) {
             throw new InputFormatException();
         }
+    }
+
+    private boolean addHistory(Answer answerFromUser, CompareResult compareResult) {
+        GuessHistory guessHistory = new GuessHistory(answerFromUser, compareResult);
+        return guessHistories.add(guessHistory);
     }
 }
