@@ -5,11 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GuessNumberGame {
-    private String[] answer;
     private Answer answerObject;
 
     public GuessNumberGame(String answer) {
-        this.answer = answer.split("");
         this.answerObject = new Answer(answer);
     }
 
@@ -29,10 +27,10 @@ public class GuessNumberGame {
     private CompareResult compareAnswerWith(String[] answerFromUser) {
         int numberA = 0;
         int numberB = 0;
-        for (int index = 0; index < this.answer.length; index ++) {
-            if (answer[index].equals(answerFromUser[index])) {
+        for (int index = 0; index < this.answerObject.getAnswer().length; index ++) {
+            if (this.answerObject.getAnswer()[index].equals(answerFromUser[index])) {
                 numberA ++;
-            } else if (Arrays.asList(answer).contains(answerFromUser[index])) {
+            } else if (Arrays.asList(this.answerObject.getAnswer()).contains(answerFromUser[index])) {
                 numberB ++;
             }
         }
@@ -42,6 +40,7 @@ public class GuessNumberGame {
 
     private boolean validateFormatSucceed(String[] answerFromUser) {
         Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
-        return answerSetFromUser.size() == answer.length;
+        return answerSetFromUser.size() == this.answerObject.getAnswer().length;
     }
+
 }

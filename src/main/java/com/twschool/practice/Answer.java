@@ -7,4 +7,8 @@ public class Answer {
     public Answer(String answer) {
         this.answer = answer.split("");
     }
+
+    public String[] getAnswer() {
+        return answer;
+    }
 }
