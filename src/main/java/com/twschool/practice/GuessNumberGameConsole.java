@@ -2,10 +2,10 @@ package com.twschool.practice;
 
 import java.util.stream.Collectors;
 
-public class GuessNumberCommandGame {
+public class GuessNumberGameConsole {
     private GuessNumberGame guessNumberGame;
 
-    public GuessNumberCommandGame(GuessNumberGame guessNumberGame) {
+    public GuessNumberGameConsole(GuessNumberGame guessNumberGame) {
         this.guessNumberGame = guessNumberGame;
     }
 
