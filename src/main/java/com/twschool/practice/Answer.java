@@ -24,12 +24,16 @@ public class Answer {
         for (int index = 0; index < ANSWER_NUMBER; index ++) {
             if (getAnswer()[index].equals(answerFromUser[index])) {
                 numberA ++;
-            } else if (Arrays.asList(getAnswer()).contains(answerFromUser[index])) {
+            } else if (contains(answerFromUser[index])) {
                 numberB ++;
             }
         }
 
         return new CompareResult(numberA, numberB);
+    }
+
+    private boolean contains(String value) {
+        return Arrays.asList(getAnswer()).contains(value);
     }
 
     boolean isValidFormat() {
