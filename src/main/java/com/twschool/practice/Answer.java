@@ -16,7 +16,8 @@ public class Answer {
         return answer;
     }
 
-    CompareResult compareWith(String[] answerFromUser) {
+    CompareResult compareWith(Answer answer) {
+        String[] answerFromUser = answer.getAnswer();
         int numberA = 0;
         int numberB = 0;
         for (int index = 0; index < getAnswer().length; index ++) {
@@ -30,7 +31,8 @@ public class Answer {
         return new CompareResult(numberA, numberB);
     }
 
-    boolean validateFormatSucceed(String[] answerFromUser) {
+    boolean validateFormatSucceed(Answer answer) {
+        String[] answerFromUser = answer.getAnswer();
         Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
         return answerSetFromUser.size() == getAnswer().length;
     }
