@@ -6,9 +6,11 @@ import java.util.Set;
 
 public class GuessNumberGame {
     private String[] answer;
+    private Answer answerObject;
 
     public GuessNumberGame(String answer) {
         this.answer = answer.split("");
+        this.answerObject = new Answer(answer);
     }
 
     public String guess(String number) {
