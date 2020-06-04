@@ -9,10 +9,10 @@ public class GuessNumberGame {
     private List<GuessHistory> guessHistories = new ArrayList<>();
     private Answer answer;
 
-    public GuessNumberGame(String answer) {
-        this.answer = new Answer(answer);
+    public GuessNumberGame(AnswerGenerator answerGenerator) {
+        this.answer = answerGenerator.generateAnswer();
     }
-    
+
     public CompareResult guess(Answer answerFromUser) {
         validateFormat(answerFromUser);
         CompareResult compareResult = this.answer.compareWith(answerFromUser);

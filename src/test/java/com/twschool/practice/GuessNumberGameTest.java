@@ -14,7 +14,7 @@ public class GuessNumberGameTest {
 
     @Before
     public void setUp() throws Exception {
-        guessNumberGame = new GuessNumberGame("1 2 3 4");
+        guessNumberGame = new GuessNumberGame(() -> new Answer("1 2 3 4"));
     }
 
     @Test
@@ -91,19 +91,19 @@ public class GuessNumberGameTest {
 
     @Test
     public void should_get_pending_status_from_history_given_2_histories_and_last_history_is_not_succeed() {
-        GuessNumberGame guessNumberGame = Mockito.spy(new GuessNumberGame("1 2 3 4"));
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
 
         List<GuessHistory> gameHistories = new ArrayList<>();
         gameHistories.add(new GuessHistory(new Answer("1 5 6 7"), new CompareResult(1, 0)));
         gameHistories.add(new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2)));
-        Mockito.when(guessNumberGame.getGuessHistories()).thenReturn(gameHistories);
+        Mockito.when(spyGuessNumberGame.getGuessHistories()).thenReturn(gameHistories);
         
-        Assert.assertEquals(GameStatus.PENDING, guessNumberGame.getStatus());
+        Assert.assertEquals(GameStatus.PENDING, spyGuessNumberGame.getStatus());
     }
 
     @Test
     public void should_get_failed_status_from_history_given_6_histories_and_last_history_is_not_succeed() {
-        GuessNumberGame guessNumberGame = Mockito.spy(new GuessNumberGame("1 2 3 4"));
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
 
         List<GuessHistory> gameHistories = new ArrayList<>();
         gameHistories.add(new GuessHistory(new Answer("1 5 6 7"), new CompareResult(1, 0)));
@@ -112,21 +112,21 @@ public class GuessNumberGameTest {
         gameHistories.add(new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2)));
         gameHistories.add(new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2)));
         gameHistories.add(new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2)));
-        Mockito.when(guessNumberGame.getGuessHistories()).thenReturn(gameHistories);
+        Mockito.when(spyGuessNumberGame.getGuessHistories()).thenReturn(gameHistories);
 
-        Assert.assertEquals(GameStatus.FAILED, guessNumberGame.getStatus());
+        Assert.assertEquals(GameStatus.FAILED, spyGuessNumberGame.getStatus());
     }
 
     @Test
     public void should_get_succeed_status_from_history_given_last_history_is_succeed() {
-        GuessNumberGame guessNumberGame = Mockito.spy(new GuessNumberGame("1 2 3 4"));
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
 
         List<GuessHistory> gameHistories = new ArrayList<>();
         gameHistories.add(new GuessHistory(new Answer("1 5 6 7"), new CompareResult(1, 0)));
         gameHistories.add(new GuessHistory(new Answer("2 4 7 8"), new CompareResult(0, 2)));
         gameHistories.add(new GuessHistory(new Answer("1 2 3 4"), new CompareResult(4, 0)));
-        Mockito.when(guessNumberGame.getGuessHistories()).thenReturn(gameHistories);
+        Mockito.when(spyGuessNumberGame.getGuessHistories()).thenReturn(gameHistories);
 
-        Assert.assertEquals(GameStatus.SUCCEED, guessNumberGame.getStatus());
+        Assert.assertEquals(GameStatus.SUCCEED, spyGuessNumberGame.getStatus());
     }
 }

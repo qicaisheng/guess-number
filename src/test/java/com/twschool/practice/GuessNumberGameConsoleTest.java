@@ -10,7 +10,7 @@ public class GuessNumberGameConsoleTest {
     
     @Before
     public void setUp() throws Exception {
-        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+        GuessNumberGame guessNumberGame = new GuessNumberGame(() -> new Answer("1 2 3 4"));
         guessNumberGameConsole = new GuessNumberGameConsole(guessNumberGame);
     }
 
