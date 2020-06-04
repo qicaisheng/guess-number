@@ -12,12 +12,16 @@ public class GuessNumberGame {
     }
 
     public String guess(String number) {
-        String[] answerFromUser = number.split(" ");
+        String[] answerFromUser = parseAnswerFromUser(number);
         if (!validateFormatSucceed(answerFromUser)) {
             return "Wrong Input，Input again";
         }
         CompareResult compareResult = compareAnswerWith(answerFromUser);
         return compareResult.toString();
+    }
+
+    private String[] parseAnswerFromUser(String number) {
+        return number.split(" ");
     }
 
     private CompareResult compareAnswerWith(String[] answerFromUser) {
