@@ -27,4 +27,8 @@ public class CompareResult {
     public int getValueCorrectButPositionIncorrectNumber() {
         return valueCorrectButPositionIncorrectNumber;
     }
+
+    boolean isSucceed() {
+        return valueAndPositionCorrectNumber == 4;
+    }
 }

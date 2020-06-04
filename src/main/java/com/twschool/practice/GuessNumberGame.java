@@ -14,7 +14,7 @@ public class GuessNumberGame {
             return "Wrong Input，Input again";
         }
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
-        if ("4A0B".equals(compareResult.toString())) {
+        if (compareResult.isSucceed()) {
             this.status = GameStatus.SUCCEED;
         }
         return compareResult.toString();

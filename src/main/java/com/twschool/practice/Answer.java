@@ -40,4 +40,5 @@ public class Answer {
         Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(getAnswer()));
         return answerSetFromUser.size() == ANSWER_NUMBER;
     }
+
 }
