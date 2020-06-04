@@ -8,16 +8,12 @@ public class GuessNumberGame {
     }
 
     public String guess(String number) {
-        String[] answerFromUser = parseAnswerFromUser(number);
+        String[] answerFromUser = number.split(" ");
         if (!answer.validateFormatSucceed(answerFromUser)) {
             return "Wrong Input，Input again";
         }
         CompareResult compareResult = answer.compareWith(answerFromUser);
         return compareResult.toString();
-    }
-
-    private String[] parseAnswerFromUser(String number) {
-        return number.split(" ");
     }
 
 }
