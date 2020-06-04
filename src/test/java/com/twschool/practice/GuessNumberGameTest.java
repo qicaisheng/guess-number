@@ -110,7 +110,8 @@ public class GuessNumberGameTest {
         
         String result = guessNumberGame.guess("2 4 7 8");
 
-        Assert.assertEquals("0A2B\n1 5 6 7        1A0B\n2 4 7 8        0A2B", result);
+        Assert.assertEquals("0A2B", result);
+        Assert.assertEquals("\n1 5 6 7        1A0B\n2 4 7 8        0A2B", guessNumberGame.getGameHistoriesString());
     }
 
     @Test

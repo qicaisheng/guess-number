@@ -25,7 +25,7 @@ public class GuessNumberGame {
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         setGameStatus(compareResult);
         gameHistories.add(new GameHistory(answerFromUser, compareResult));
-        return compareResult.toString() + getGameHistoriesString();
+        return compareResult.toString();
     }
 
     private void setGameStatus(CompareResult compareResult) {
@@ -46,6 +46,9 @@ public class GuessNumberGame {
 
     public GameStatus getStatus() {
         List<GameHistory> gameHistories = getGameHistories();
+        if (gameHistories.isEmpty()) {
+            return GameStatus.PENDING;
+        }
         if (gameHistories.get(gameHistories.size() - 1).getCompareResult().isSucceed()) {
             return GameStatus.SUCCEED;
         } else if (gameHistories.size() == MAX_TRY_TIMES) {
