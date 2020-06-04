@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.console;
 
 import java.util.Scanner;
 

@@ -1,5 +1,6 @@
 package com.twschool.practice;
 
+import com.twschool.practice.console.ConsoleInputReader;
 import org.junit.Assert;
 import org.junit.Test;
 

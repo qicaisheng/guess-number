@@ -1,4 +1,7 @@
-package com.twschool.practice;
+package com.twschool.practice.console;
+
+import com.twschool.practice.*;
+import com.twschool.practice.console.ConsoleInputReader;
 
 import java.util.stream.Collectors;
 
