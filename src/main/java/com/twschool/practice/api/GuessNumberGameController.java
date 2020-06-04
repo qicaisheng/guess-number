@@ -1,6 +1,7 @@
 package com.twschool.practice.api;
 
 import com.twschool.practice.domain.Answer;
+import com.twschool.practice.service.GuessNumberGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

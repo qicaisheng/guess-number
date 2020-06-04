@@ -1,4 +1,4 @@
-package com.twschool.practice.api;
+package com.twschool.practice.service;
 
 import com.twschool.practice.domain.Answer;
 import com.twschool.practice.domain.CompareResult;

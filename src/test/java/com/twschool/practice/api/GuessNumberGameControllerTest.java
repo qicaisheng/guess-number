@@ -1,6 +1,7 @@
 package com.twschool.practice.api;
 
 import com.twschool.practice.domain.CompareResult;
+import com.twschool.practice.service.GuessNumberGameService;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.Response;
