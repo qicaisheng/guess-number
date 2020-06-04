@@ -19,4 +19,12 @@ public class CompareResult {
     public void increaseValueCorrectButPositionIncorrectNumber() {
         this.valueCorrectButPositionIncorrectNumber ++;
     }
+
+    public int getValueAndPositionCorrectNumber() {
+        return valueAndPositionCorrectNumber;
+    }
+
+    public int getValueCorrectButPositionIncorrectNumber() {
+        return valueCorrectButPositionIncorrectNumber;
+    }
 }

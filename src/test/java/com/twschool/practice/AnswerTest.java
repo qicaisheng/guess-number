@@ -25,4 +25,16 @@ public class AnswerTest {
 
         Assert.assertTrue(answer.isValidFormat());
     }
+
+    @Test
+    public void should_return_compare_result_when_compare_with_answer_0324_given_answer_1234() {
+        Answer answer = new Answer("1 2 3 4");
+
+        CompareResult compareResult = answer.compareWith(new Answer("0 3 2 4"));
+        
+        Assert.assertNotNull(compareResult);
+        Assert.assertEquals(1, compareResult.getValueAndPositionCorrectNumber());
+        Assert.assertEquals(2, compareResult.getValueCorrectButPositionIncorrectNumber());
+    }
+
 }
