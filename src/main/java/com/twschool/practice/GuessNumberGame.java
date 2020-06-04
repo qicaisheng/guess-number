@@ -16,13 +16,17 @@ public class GuessNumberGame {
     }
     
     public CompareResult guess(Answer answerFromUser) {
-        if (!answerFromUser.isValidFormat()) {
-            throw new InputFormatException();
-        }
+        validateFormat(answerFromUser);
         decreaseTryTimes();
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         guessHistories.add(new GuessHistory(answerFromUser, compareResult));
         return compareResult;
+    }
+
+    private void validateFormat(Answer answerFromUser) {
+        if (!answerFromUser.isValidFormat()) {
+            throw new InputFormatException();
+        }
     }
 
     public List<GuessHistory> getGuessHistories() {
