@@ -1,32 +1,23 @@
 package com.twschool.practice;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class GuessNumberGame {
-    private Answer answerObject;
+    private Answer answer;
 
     public GuessNumberGame(String answer) {
-        this.answerObject = new Answer(answer);
+        this.answer = new Answer(answer);
     }
 
     public String guess(String number) {
         String[] answerFromUser = parseAnswerFromUser(number);
-        if (!validateFormatSucceed(answerFromUser)) {
+        if (!answer.validateFormatSucceed(answerFromUser)) {
             return "Wrong Input，Input again";
         }
-        CompareResult compareResult = answerObject.compareAnswerWith(answerFromUser);
+        CompareResult compareResult = answer.compareWith(answerFromUser);
         return compareResult.toString();
     }
 
     private String[] parseAnswerFromUser(String number) {
         return number.split(" ");
-    }
-
-    private boolean validateFormatSucceed(String[] answerFromUser) {
-        Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
-        return answerSetFromUser.size() == this.answerObject.getAnswer().length;
     }
 
 }

@@ -1,6 +1,8 @@
 package com.twschool.practice;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Answer {
 
@@ -14,7 +16,7 @@ public class Answer {
         return answer;
     }
 
-    CompareResult compareAnswerWith(String[] answerFromUser) {
+    CompareResult compareWith(String[] answerFromUser) {
         int numberA = 0;
         int numberB = 0;
         for (int index = 0; index < getAnswer().length; index ++) {
@@ -26,5 +28,10 @@ public class Answer {
         }
 
         return new CompareResult(numberA, numberB);
+    }
+
+    boolean validateFormatSucceed(String[] answerFromUser) {
+        Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
+        return answerSetFromUser.size() == getAnswer().length;
     }
 }
