@@ -8,7 +8,7 @@ public class GuessNumberGame {
     }
 
     public String guess(String number) {
-        if (!Answer.validateFormatSucceed(new Answer(number))) {
+        if (!new Answer(number).isValidFormat()) {
             return "Wrong Input，Input again";
         }
         CompareResult compareResult = answer.compareWith(new Answer(number));

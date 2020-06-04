@@ -32,9 +32,8 @@ public class Answer {
         return new CompareResult(numberA, numberB);
     }
 
-    static boolean validateFormatSucceed(Answer answer) {
-        String[] answerFromUser = answer.getAnswer();
-        Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(answerFromUser));
+    boolean isValidFormat() {
+        Set<String> answerSetFromUser = new HashSet<>(Arrays.asList(getAnswer()));
         return answerSetFromUser.size() == ANSWER_NUMBER;
     }
 }
