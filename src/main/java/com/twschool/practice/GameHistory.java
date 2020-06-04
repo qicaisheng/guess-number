@@ -13,6 +13,9 @@ public class GameHistory {
 
     @Override
     public String toString() {
-        return String.join(" ", Arrays.asList(inputAnswer.getAnswer())) + "        " + compareResult.toString();
+        String inputAnswer = String.join(" ", Arrays.asList(this.inputAnswer.getAnswer()));
+        String result = compareResult.toString();
+        String whiteSpaces = "        ";
+        return inputAnswer + whiteSpaces + result;
     }
 }

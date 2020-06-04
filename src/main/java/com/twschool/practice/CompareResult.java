@@ -2,9 +2,14 @@ package com.twschool.practice;
 
 public class CompareResult {
     private int valueAndPositionCorrectNumber;
-    private int valueCorrectButPositionIncorrectNumber;
 
+    private int valueCorrectButPositionIncorrectNumber;
     public CompareResult() {
+    }
+
+    public CompareResult(int valueAndPositionCorrectNumber, int valueCorrectButPositionIncorrectNumber) {
+        this.valueAndPositionCorrectNumber = valueAndPositionCorrectNumber;
+        this.valueCorrectButPositionIncorrectNumber = valueCorrectButPositionIncorrectNumber;
     }
 
     @Override
