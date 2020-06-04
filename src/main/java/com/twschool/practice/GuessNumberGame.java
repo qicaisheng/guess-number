@@ -5,10 +5,9 @@ import java.util.List;
 
 public class GuessNumberGame {
     private static final int MAX_TRY_TIMES = 6;
-    private Answer answer;
     private int tryTimes = MAX_TRY_TIMES;
-
     private List<GuessHistory> guessHistories = new ArrayList<>();
+    private Answer answer;
 
     public GuessNumberGame(String answer) {
         this.answer = new Answer(answer);
@@ -20,12 +19,6 @@ public class GuessNumberGame {
         CompareResult compareResult = this.answer.compareWith(answerFromUser);
         guessHistories.add(new GuessHistory(answerFromUser, compareResult));
         return compareResult;
-    }
-
-    private void validateFormat(Answer answerFromUser) {
-        if (!answerFromUser.isValidFormat()) {
-            throw new InputFormatException();
-        }
     }
 
     public List<GuessHistory> getGuessHistories() {
@@ -51,5 +44,11 @@ public class GuessNumberGame {
 
     public int getTryTimes() {
         return tryTimes;
+    }
+
+    private void validateFormat(Answer answerFromUser) {
+        if (!answerFromUser.isValidFormat()) {
+            throw new InputFormatException();
+        }
     }
 }
