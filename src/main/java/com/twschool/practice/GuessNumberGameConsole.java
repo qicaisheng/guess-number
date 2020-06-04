@@ -6,6 +6,9 @@ public class GuessNumberGameConsole {
     private static final String WRONG_INPUT = "Wrong Input，Input again";
     private static final String NEW_LINE = "\n";
     private GuessNumberGame guessNumberGame;
+    
+    public static void main(String[] args) {
+    }
 
     public GuessNumberGameConsole(GuessNumberGame guessNumberGame) {
         this.guessNumberGame = guessNumberGame;
