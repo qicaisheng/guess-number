@@ -21,7 +21,7 @@ public class Answer {
         String[] answerFromUser = answer.getAnswer();
         int numberA = 0;
         int numberB = 0;
-        for (int index = 0; index < getAnswer().length; index ++) {
+        for (int index = 0; index < ANSWER_NUMBER; index ++) {
             if (getAnswer()[index].equals(answerFromUser[index])) {
                 numberA ++;
             } else if (Arrays.asList(getAnswer()).contains(answerFromUser[index])) {
