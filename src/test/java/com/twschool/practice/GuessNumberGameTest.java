@@ -75,4 +75,13 @@ public class GuessNumberGameTest {
         
         Assert.assertEquals(GameStatus.SUCCEED, guessNumberGame.getStatus());
     }
+
+    @Test
+    public void should_decrease_try_times_when_input_1534_given_game_with_answer_1234() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+        
+        guessNumberGame.guess("1 5 3 4");
+
+        Assert.assertEquals(5, guessNumberGame.getTryTimes());
+    }
 }
