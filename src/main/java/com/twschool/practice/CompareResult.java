@@ -1,16 +1,22 @@
 package com.twschool.practice;
 
 public class CompareResult {
-    private final int numberA;
-    private final int numberB;
+    private int valueAndPositionCorrectNumber;
+    private int valueCorrectButPositionIncorrectNumber;
 
-    public CompareResult(int numberA, int numberB) {
-        this.numberA = numberA;
-        this.numberB = numberB;
+    public CompareResult() {
     }
 
     @Override
     public String toString() {
-        return numberA + "A" + numberB + "B";
+        return valueAndPositionCorrectNumber + "A" + valueCorrectButPositionIncorrectNumber + "B";
+    }
+
+    public void increaseValueAndPositionCorrectNumber() {
+        this.valueAndPositionCorrectNumber ++;
+    }
+
+    public void increaseValueCorrectButPositionIncorrectNumber() {
+        this.valueCorrectButPositionIncorrectNumber ++;
     }
 }
