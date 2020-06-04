@@ -22,7 +22,8 @@ public class Answer {
         int numberA = 0;
         int numberB = 0;
         for (int index = 0; index < ANSWER_NUMBER; index ++) {
-            if (getAnswer()[index].equals(answerFromUser[index])) {
+            boolean valueAndPositionCorrect = getAnswer()[index].equals(answerFromUser[index]);
+            if (valueAndPositionCorrect) {
                 numberA ++;
             } else if (contains(answerFromUser[index])) {
                 numberB ++;
