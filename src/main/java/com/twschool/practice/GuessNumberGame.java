@@ -8,7 +8,7 @@ public class GuessNumberGame {
     }
 
     public String guess(String number) {
-        String[] answerFromUser = number.split(" ");
+        String[] answerFromUser = new Answer(number).getAnswer();
         if (!answer.validateFormatSucceed(answerFromUser)) {
             return "Wrong Input，Input again";
         }
