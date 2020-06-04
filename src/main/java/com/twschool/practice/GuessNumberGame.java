@@ -25,7 +25,7 @@ public class GuessNumberGame {
         }
     }
 
-    private CompareResult guess(Answer answerFromUser) {
+    public CompareResult guess(Answer answerFromUser) {
         if (!answerFromUser.isValidFormat()) {
             throw new InputFormatException();
         }
