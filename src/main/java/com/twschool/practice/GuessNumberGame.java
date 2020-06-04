@@ -8,10 +8,11 @@ public class GuessNumberGame {
     }
 
     public String guess(String number) {
-        if (!new Answer(number).isValidFormat()) {
+        Answer answerFromUser = new Answer(number);
+        if (!answerFromUser.isValidFormat()) {
             return "Wrong Input，Input again";
         }
-        CompareResult compareResult = answer.compareWith(new Answer(number));
+        CompareResult compareResult = this.answer.compareWith(answerFromUser);
         return compareResult.toString();
     }
 
