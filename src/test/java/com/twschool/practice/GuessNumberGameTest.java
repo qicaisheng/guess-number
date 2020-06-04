@@ -84,4 +84,18 @@ public class GuessNumberGameTest {
 
         Assert.assertEquals(5, guessNumberGame.getTryTimes());
     }
+
+    @Test
+    public void should_be_failed_when_input_1534_given_game_with_answer_1234_and_try_times_1() {
+        GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
+        guessNumberGame.guess("1 5 3 4");
+        guessNumberGame.guess("1 5 3 4");
+        guessNumberGame.guess("1 5 3 4");
+        guessNumberGame.guess("1 5 3 4");
+        guessNumberGame.guess("1 5 3 4");
+        
+        guessNumberGame.guess("1 5 3 4");
+
+        Assert.assertEquals(GameStatus.FAILED, guessNumberGame.getStatus());
+    }
 }
