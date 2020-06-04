@@ -30,7 +30,7 @@ public class GuessNumberGame {
             }
         }
 
-        return numberA + "A" + numberB + "B";
+        return new CompareResult(numberA, numberB).toString();
     }
 
     private boolean validateFormatSucceed(String[] answerFromUser) {
