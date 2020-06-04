@@ -1,7 +1,6 @@
 package com.twschool.practice.api;
 
 import com.twschool.practice.domain.Answer;
-import com.twschool.practice.domain.CompareResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +16,9 @@ public class GuessNumberGameController {
     private GuessNumberGameService guessNumberGameService;
     
     @PostMapping
-    public CompareResult guess(@RequestBody AnswerDto answerDto) {
+    public CompareResultDto guess(@RequestBody AnswerDto answerDto) {
         Answer answer = new Answer(Arrays.asList(answerDto.getNumber().split(" ")));
-        return guessNumberGameService.guess(answer);
+        return CompareResultDto.buildFrom(guessNumberGameService.guess(answer));
     }
     
     @GetMapping("/histories")

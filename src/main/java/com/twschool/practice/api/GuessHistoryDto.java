@@ -29,9 +29,7 @@ public class GuessHistoryDto {
         AnswerDto answerDto = new AnswerDto();
         answerDto.setNumber(String.join("", guessHistory.getInputAnswer().getAnswerNumbers()));
         guessHistoryDto.setAnswerDto(answerDto);
-        CompareResultDto compareResultDto = new CompareResultDto();
-        compareResultDto.setValueAndPositionCorrectNumber(guessHistory.getCompareResult().getValueAndPositionCorrectNumber());
-        compareResultDto.setValueCorrectButPositionIncorrectNumber(guessHistory.getCompareResult().getValueCorrectButPositionIncorrectNumber());
+        CompareResultDto compareResultDto = CompareResultDto.buildFrom(guessHistory.getCompareResult());
         guessHistoryDto.setCompareResultDto(compareResultDto);
 
         return guessHistoryDto;
