@@ -86,14 +86,15 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_output_result_and_history_when_input_2478_given_game_with_answer_1234() {
+    public void should_get_history_when_input_2478_given_game_with_answer_1234() {
         GuessNumberGame guessNumberGame = new GuessNumberGame("1 2 3 4");
         guessNumberGame.guess(new Answer("1 5 6 7"));
         
         String result = guessNumberGame.guess(new Answer("2 4 7 8")).toString();
 
-        Assert.assertEquals("0A2B", result);
-        Assert.assertEquals("\n1 5 6 7        1A0B\n2 4 7 8        0A2B", guessNumberGame.getGameHistoriesString());
+        List<GuessHistory> guessHistories = guessNumberGame.getGuessHistories();
+        Assert.assertEquals(2, guessHistories.size());
+        Assert.assertEquals("0A2B", guessHistories.get(1).getCompareResult().toString());
     }
 
     @Test

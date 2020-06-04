@@ -1,5 +1,7 @@
 package com.twschool.practice;
 
+import java.util.stream.Collectors;
+
 public class GuessNumberCommandGame {
     private GuessNumberGame guessNumberGame;
 
@@ -18,6 +20,8 @@ public class GuessNumberCommandGame {
     }
 
     public String getHistories() {
-        return this.guessNumberGame.getGameHistoriesString();
+        return this.guessNumberGame.getGuessHistories().stream()
+                .map(guessHistory -> "\n" + guessHistory.toString())
+                .collect(Collectors.joining());
     }
 }

@@ -2,7 +2,6 @@ package com.twschool.practice;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GuessNumberGame {
     private static final int MAX_TRY_TIMES = 6;
@@ -31,10 +30,6 @@ public class GuessNumberGame {
 
     public List<GuessHistory> getGuessHistories() {
         return guessHistories;
-    }
-
-    public String getGameHistoriesString() {
-        return guessHistories.stream().map(guessHistory -> "\n" + guessHistory.toString()).collect(Collectors.joining());
     }
 
     public GameStatus getStatus() {
