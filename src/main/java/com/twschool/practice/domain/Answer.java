@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Answer {
 
-    public static final int ANSWER_NUMBER = 4;
+    private static final int ANSWER_NUMBER = 4;
     private List<String> answerNumbers;
 
     public Answer(String answer) {
