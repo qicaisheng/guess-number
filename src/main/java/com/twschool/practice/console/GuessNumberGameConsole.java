@@ -28,14 +28,25 @@ public class GuessNumberGameConsole {
     }
 
     public void start() {
-        outputWriter.output(WELCOME_MESSAGE);
+        welcome();
+        guessUntilEndGame();
+        notifyEndGame();
+    }
 
+    private void welcome() {
+        outputWriter.output(WELCOME_MESSAGE);
+    }
+
+    private void guessUntilEndGame() {
         while (this.guessNumberGame.getStatus() == GameStatus.PENDING) {
             outputWriter.output(INPUT_TIPS);
             String guessResult = guess(inputReader.getInput());
             outputWriter.output(String.format(GUESS_RESULT_FORMAT, guessResult));
             outputWriter.output(String.format(GUESS_HISTORIES_FORMAT, getHistories()));
         }
+    }
+
+    private void notifyEndGame() {
         if (this.guessNumberGame.getStatus() == GameStatus.SUCCEED) {
             outputWriter.output(WINNING_MESSAGE);
         } else if (this.guessNumberGame.getStatus() == GameStatus.FAILED) {
