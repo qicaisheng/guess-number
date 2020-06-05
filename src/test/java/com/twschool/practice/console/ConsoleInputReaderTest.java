@@ -1,6 +1,5 @@
-package com.twschool.practice;
+package com.twschool.practice.console;
 
-import com.twschool.practice.console.ConsoleInputReader;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

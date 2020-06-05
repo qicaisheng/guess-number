@@ -1,6 +1,5 @@
-package com.twschool.practice;
+package com.twschool.practice.console;
 
-import com.twschool.practice.console.GuessNumberGameConsole;
 import com.twschool.practice.domain.Answer;
 import com.twschool.practice.domain.GuessNumberGame;
 import org.junit.jupiter.api.BeforeEach;

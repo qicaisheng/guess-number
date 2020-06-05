@@ -1,4 +1,4 @@
-package com.twschool.practice;
+package com.twschool.practice.console;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
