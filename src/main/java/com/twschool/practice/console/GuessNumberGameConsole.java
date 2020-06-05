@@ -38,7 +38,7 @@ public class GuessNumberGameConsole {
     }
 
     private void guessUntilEndGame() {
-        while (this.guessNumberGame.getStatus() == GameStatus.PENDING) {
+        while (!this.guessNumberGame.isEndGame()) {
             outputWriter.output(INPUT_TIPS);
             String guessResult = guess(inputReader.getInput());
             outputWriter.output(String.format(GUESS_RESULT_FORMAT, guessResult));
@@ -47,9 +47,9 @@ public class GuessNumberGameConsole {
     }
 
     private void notifyEndGame() {
-        if (this.guessNumberGame.getStatus() == GameStatus.SUCCEED) {
+        if (this.guessNumberGame.isSucceed()) {
             outputWriter.output(WINNING_MESSAGE);
-        } else if (this.guessNumberGame.getStatus() == GameStatus.FAILED) {
+        } else if (this.guessNumberGame.isFailed()) {
             outputWriter.output(LOSE_MESSAGE);
         }
     }
