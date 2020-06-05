@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GuessNumberGameTest {
     
@@ -132,4 +133,38 @@ public class GuessNumberGameTest {
 
         assertEquals(GameStatus.SUCCEED, spyGuessNumberGame.getStatus());
     }
+
+    @Test
+    void should_return_succeed_when_status_is_succeed() {
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
+        Mockito.when(spyGuessNumberGame.getStatus()).thenReturn(GameStatus.SUCCEED);
+
+        boolean succeed = spyGuessNumberGame.isSucceed();
+        
+        assertTrue(succeed);
+    }
+
+    @Test
+    void should_return_failed_when_status_is_failed() {
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
+        Mockito.when(spyGuessNumberGame.getStatus()).thenReturn(GameStatus.FAILED);
+
+        boolean failed = spyGuessNumberGame.isFailed();
+
+        assertTrue(failed);
+
+    }
+
+    @Test
+    void should_return_game_ended_when_status_is_failed_or_succeed() {
+        GuessNumberGame spyGuessNumberGame = Mockito.spy(guessNumberGame);
+
+        Mockito.when(spyGuessNumberGame.getStatus()).thenReturn(GameStatus.SUCCEED);
+        assertTrue(spyGuessNumberGame.isEndGame());
+
+        Mockito.when(spyGuessNumberGame.getStatus()).thenReturn(GameStatus.FAILED);
+        assertTrue(spyGuessNumberGame.isEndGame());
+
+    }
+
 }

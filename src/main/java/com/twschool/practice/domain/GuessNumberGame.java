@@ -56,4 +56,16 @@ public class GuessNumberGame {
         GuessHistory guessHistory = new GuessHistory(answerFromUser, compareResult);
         return guessHistories.add(guessHistory);
     }
+
+    public boolean isSucceed() {
+        return getStatus() == GameStatus.SUCCEED;
+    }
+
+    public boolean isFailed() {
+        return getStatus() == GameStatus.FAILED;
+    }
+
+    public boolean isEndGame() {
+        return isSucceed() || isFailed();
+    }
 }
