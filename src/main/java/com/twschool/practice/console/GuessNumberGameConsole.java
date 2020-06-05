@@ -15,15 +15,18 @@ public class GuessNumberGameConsole {
     private static final String GUESS_HISTORIES_FORMAT = "Histories: %s";
     private GuessNumberGame guessNumberGame;
     private InputReader consoleInputReader;
+    private OutputWriter consoleOutputWriter;
 
     public GuessNumberGameConsole() {
         this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
         this.consoleInputReader = new ConsoleInputReader();
+        this.consoleOutputWriter = new ConsoleOutputWriter();
     }
 
     public GuessNumberGameConsole(GuessNumberGame guessNumberGame) {
         this.guessNumberGame = guessNumberGame;
         this.consoleInputReader = new ConsoleInputReader();
+        this.consoleOutputWriter = new ConsoleOutputWriter();
     }
 
     public void start() {
