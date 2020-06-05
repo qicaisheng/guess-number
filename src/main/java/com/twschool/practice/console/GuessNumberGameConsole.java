@@ -33,20 +33,20 @@ public class GuessNumberGameConsole {
         notifyEndGame();
     }
 
-    private void welcome() {
+    void welcome() {
         outputWriter.output(WELCOME_MESSAGE);
     }
 
-    private void guessUntilEndGame() {
+    void guessUntilEndGame() {
         while (!this.guessNumberGame.isEndGame()) {
             outputWriter.output(INPUT_TIPS);
-            String guessResult = guess(inputReader.getInput());
+            String guessResult = guess(getInputReader().getInput());
             outputWriter.output(String.format(GUESS_RESULT_FORMAT, guessResult));
             outputWriter.output(String.format(GUESS_HISTORIES_FORMAT, getHistories()));
         }
     }
 
-    private void notifyEndGame() {
+    void notifyEndGame() {
         if (this.guessNumberGame.isSucceed()) {
             outputWriter.output(WINNING_MESSAGE);
         } else if (this.guessNumberGame.isFailed()) {
@@ -68,5 +68,13 @@ public class GuessNumberGameConsole {
         return this.guessNumberGame.getGuessHistories().stream()
                 .map(guessHistory -> NEW_LINE + guessHistory.toString())
                 .collect(Collectors.joining());
+    }
+    
+    public InputReader getInputReader() {
+        return inputReader;
+    }
+
+    public OutputWriter getOutputWriter() {
+        return outputWriter;
     }
 }

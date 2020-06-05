@@ -4,6 +4,7 @@ import com.twschool.practice.domain.Answer;
 import com.twschool.practice.domain.GuessNumberGame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -48,5 +49,25 @@ public class GuessNumberGameConsoleTest {
         assertEquals("\n1 5 6 7        1A0B\n2 4 7 8        0A2B", histories);
     }
 
+    @Test
+    void should_guess_until_game_end() {
+        GuessNumberGameConsole spyGameConsole = Mockito.spy(guessNumberGameConsole);
+        Mockito.doReturn((InputReader) () -> "1 3 2 4").when(spyGameConsole).getInputReader();
 
+        spyGameConsole.start();
+        
+        Mockito.verify(spyGameConsole, Mockito.times(6)).guess(Mockito.any());
+        Mockito.verify(spyGameConsole, Mockito.times(1)).notifyEndGame();
+    }
+
+    @Test
+    void should_game_end_after_succeed_guess() {
+        GuessNumberGameConsole spyGameConsole = Mockito.spy(guessNumberGameConsole);
+        Mockito.doReturn((InputReader) () -> "1 2 3 4").when(spyGameConsole).getInputReader();
+
+        spyGameConsole.start();
+
+        Mockito.verify(spyGameConsole, Mockito.times(1)).guess(Mockito.any());
+        Mockito.verify(spyGameConsole, Mockito.times(1)).notifyEndGame();
+    }
 }
