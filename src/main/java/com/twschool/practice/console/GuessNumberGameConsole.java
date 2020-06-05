@@ -14,19 +14,19 @@ public class GuessNumberGameConsole {
     private static final String GUESS_RESULT_FORMAT = "Result: %s";
     private static final String GUESS_HISTORIES_FORMAT = "Histories: %s";
     private GuessNumberGame guessNumberGame;
-    private InputReader consoleInputReader;
-    private OutputWriter consoleOutputWriter;
+    private InputReader inputReader;
+    private OutputWriter outputWriter;
 
     public GuessNumberGameConsole() {
         this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
-        this.consoleInputReader = new ConsoleInputReader();
-        this.consoleOutputWriter = new ConsoleOutputWriter();
+        this.inputReader = new ConsoleInputReader();
+        this.outputWriter = new ConsoleOutputWriter();
     }
 
     public GuessNumberGameConsole(GuessNumberGame guessNumberGame) {
         this.guessNumberGame = guessNumberGame;
-        this.consoleInputReader = new ConsoleInputReader();
-        this.consoleOutputWriter = new ConsoleOutputWriter();
+        this.inputReader = new ConsoleInputReader();
+        this.outputWriter = new ConsoleOutputWriter();
     }
 
     public void start() {
@@ -34,7 +34,7 @@ public class GuessNumberGameConsole {
 
         while (this.guessNumberGame.getStatus() == GameStatus.PENDING) {
             System.out.println(INPUT_TIPS);
-            String guessResult = guess(consoleInputReader.getInput());
+            String guessResult = guess(inputReader.getInput());
             System.out.println(String.format(GUESS_RESULT_FORMAT, guessResult));
             System.out.println(String.format(GUESS_HISTORIES_FORMAT, getHistories()));
         }
