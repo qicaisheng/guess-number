@@ -14,7 +14,7 @@ public class GuessNumberGameConsole {
     private static final String GUESS_RESULT_FORMAT = "Result: %s";
     private static final String GUESS_HISTORIES_FORMAT = "Histories: %s";
     private GuessNumberGame guessNumberGame;
-    private ConsoleInputReader consoleInputReader;
+    private InputReader consoleInputReader;
 
     public GuessNumberGameConsole() {
         this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
