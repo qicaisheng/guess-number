@@ -30,18 +30,18 @@ public class GuessNumberGameConsole {
     }
 
     public void start() {
-        System.out.println(WELCOME_MESSAGE);
+        outputWriter.output(WELCOME_MESSAGE);
 
         while (this.guessNumberGame.getStatus() == GameStatus.PENDING) {
-            System.out.println(INPUT_TIPS);
+            outputWriter.output(INPUT_TIPS);
             String guessResult = guess(inputReader.getInput());
-            System.out.println(String.format(GUESS_RESULT_FORMAT, guessResult));
-            System.out.println(String.format(GUESS_HISTORIES_FORMAT, getHistories()));
+            outputWriter.output(String.format(GUESS_RESULT_FORMAT, guessResult));
+            outputWriter.output(String.format(GUESS_HISTORIES_FORMAT, getHistories()));
         }
         if (this.guessNumberGame.getStatus() == GameStatus.SUCCEED) {
-            System.out.println(WINNING_MESSAGE);
+            outputWriter.output(WINNING_MESSAGE);
         } else if (this.guessNumberGame.getStatus() == GameStatus.FAILED) {
-            System.out.println(LOSE_MESSAGE);
+            outputWriter.output(LOSE_MESSAGE);
         }
     }
 
