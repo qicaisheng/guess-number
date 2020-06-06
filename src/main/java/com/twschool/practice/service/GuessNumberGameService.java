@@ -22,12 +22,15 @@ public class GuessNumberGameService {
     
     
     public CompareResult guess(Answer answer) {
-        if (this.guessNumberGame == null) {
+        if (this.getGuessNumberGame() == null) {
             startGame();
         }
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
         gameRecordMapper.save(new GameRecord(guessHistory, ROUND));
+        if (this.getGuessNumberGame().isEndGame()) {
+            exitGame();
+        }
         return guess;
     }
 
@@ -41,5 +44,9 @@ public class GuessNumberGameService {
 
     public void startGame() {
         this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
+    }
+
+    public void exitGame() {
+        
     }
 }

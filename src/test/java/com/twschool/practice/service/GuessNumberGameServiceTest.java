@@ -89,4 +89,31 @@ class GuessNumberGameServiceTest {
         Mockito.verify(spyGuessNumberGameService, Mockito.times(1)).startGame();
 
     }
+
+    @Test
+    void should_exit_game_when_game_end() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(guessNumberGameService);
+        
+        GuessNumberGame mockGuessNumberGame = Mockito.mock(GuessNumberGame.class);
+        Mockito.when(mockGuessNumberGame.isEndGame()).thenReturn(true);
+        Mockito.when(mockGuessNumberGame.guess(Mockito.any())).thenReturn(new CompareResult(1, 2));
+
+        Mockito.doReturn(mockGuessNumberGame).when(spyGuessNumberGameService).getGuessNumberGame();
+        
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        Mockito.verify(spyGuessNumberGameService, Mockito.times(1)).exitGame();
+
+    }
+
+    @Test
+    void should_not_exit_game_when_game_not_end() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(guessNumberGameService);
+
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        Mockito.verify(spyGuessNumberGameService, Mockito.times(0)).exitGame();
+
+    }
 }
