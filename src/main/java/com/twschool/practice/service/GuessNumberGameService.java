@@ -36,7 +36,7 @@ public class GuessNumberGameService {
     }
 
     public GuessNumberGame getGuessNumberGame() {
-        return new GuessNumberGame(new RandomAnswerGenerator());
+        return this.guessNumberGame;
     }
 
     public void startGame() {
