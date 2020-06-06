@@ -25,9 +25,11 @@ public class GuessNumberGameService {
         if (this.getGuessNumberGame() == null) {
             startGame();
         }
+        
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
         gameRecordMapper.save(new GameRecord(guessHistory, ROUND));
+        
         if (this.getGuessNumberGame().isEndGame()) {
             exitGame();
         }
@@ -47,6 +49,6 @@ public class GuessNumberGameService {
     }
 
     public void exitGame() {
-        
+        this.guessNumberGame = null;
     }
 }

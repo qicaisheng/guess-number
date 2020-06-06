@@ -116,4 +116,16 @@ class GuessNumberGameServiceTest {
         Mockito.verify(spyGuessNumberGameService, Mockito.times(0)).exitGame();
 
     }
+
+    @Test
+    void should_get_guess_number_game_null_when_exit_game() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(new GuessNumberGameService(mockGameRecordMapper));
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        assertNotNull(spyGuessNumberGameService.getGuessNumberGame());
+        
+        spyGuessNumberGameService.exitGame();
+        assertNull(spyGuessNumberGameService.getGuessNumberGame());
+    }
+
 }
