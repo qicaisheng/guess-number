@@ -23,18 +23,26 @@ public class GuessNumberGameService {
     
     
     public CompareResult guess(Answer answer) {
-        if (this.getGuessNumberGame() == null) {
-            startGame();
-        }
-        
+        startGameIfGameNull();
+
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
         gameRecordMapper.save(new GameRecord(guessHistory, getRound()));
-        
+
+        exitGameIfEndGame();
+        return guess;
+    }
+
+    private void exitGameIfEndGame() {
         if (this.getGuessNumberGame().isEndGame()) {
             exitGame();
         }
-        return guess;
+    }
+
+    private void startGameIfGameNull() {
+        if (this.getGuessNumberGame() == null) {
+            startGame();
+        }
     }
 
     public List<GuessHistory> getGuessHistories() {
