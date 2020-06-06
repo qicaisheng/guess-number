@@ -1,11 +1,26 @@
 package com.twschool.practice;
 
+import com.twschool.practice.domain.GuessHistory;
+
+import java.util.UUID;
+
 public class GameRecord {
     private String id;
     private String round;
     private String userGuess;
     private int positionCorrectNumber;
     private int valueCorrectNumber;
+
+    public GameRecord(GuessHistory guessHistory, String round) {
+        setId(UUID.randomUUID().toString());
+        setRound(round);
+        setUserGuess(String.join(" ", guessHistory.getInputAnswer().getAnswerNumbers()));
+        setValueCorrectNumber(guessHistory.getCompareResult().getValueCorrectButPositionIncorrectNumber());
+        setPositionCorrectNumber(guessHistory.getCompareResult().getValueAndPositionCorrectNumber());
+    }
+
+    public GameRecord() {
+    }
 
     public String getId() {
         return id;
