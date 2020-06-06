@@ -68,4 +68,14 @@ class GuessNumberGameServiceTest {
         Mockito.verify(guessNumberGame, Mockito.times(1)).getGuessHistories();
 
     }
+
+    @Test
+    void should_start_game_when_first_guess() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(guessNumberGameService);
+        
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        Mockito.verify(spyGuessNumberGameService, Mockito.times(1)).startGame();
+
+    }
 }

@@ -21,6 +21,7 @@ public class GuessNumberGameService {
     
     
     public CompareResult guess(Answer answer) {
+        startGame();
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
         gameRecordMapper.save(new GameRecord(guessHistory, ROUND));
@@ -33,5 +34,9 @@ public class GuessNumberGameService {
 
     public GuessNumberGame getGuessNumberGame() {
         return new GuessNumberGame(new RandomAnswerGenerator());
+    }
+
+    public void startGame() {
+        
     }
 }
