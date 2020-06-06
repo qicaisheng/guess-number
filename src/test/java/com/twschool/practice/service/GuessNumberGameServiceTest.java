@@ -128,4 +128,36 @@ class GuessNumberGameServiceTest {
         assertNull(spyGuessNumberGameService.getGuessNumberGame());
     }
 
+    @Test
+    void should_set_game_round_when_start_game() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(new GuessNumberGameService(mockGameRecordMapper));
+        
+        spyGuessNumberGameService.startGame();
+
+        assertNotNull(spyGuessNumberGameService.getRound());
+    }
+
+    @Test
+    void should_get_game_null_round_when_exit_game() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(new GuessNumberGameService(mockGameRecordMapper));
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        assertNotNull(spyGuessNumberGameService.getRound());
+
+        spyGuessNumberGameService.exitGame();
+        assertNull(spyGuessNumberGameService.getRound());
+    }
+
+    @Test
+    void should_set_different_round_when_start_game_twice_and_between_exit_game() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(new GuessNumberGameService(mockGameRecordMapper));
+        spyGuessNumberGameService.startGame();
+        String round1 = spyGuessNumberGameService.getRound();
+
+        spyGuessNumberGameService.startGame();
+        String round2 = spyGuessNumberGameService.getRound();
+        
+        assertNotEquals(round1, round2);
+    }
+
 }
