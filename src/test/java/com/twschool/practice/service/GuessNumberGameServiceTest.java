@@ -78,4 +78,15 @@ class GuessNumberGameServiceTest {
         Mockito.verify(spyGuessNumberGameService, Mockito.times(1)).startGame();
 
     }
+
+    @Test
+    void should_start_game_one_time_when_guess_twice_with_incorrect_answer() {
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(guessNumberGameService);
+
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
+
+        Mockito.verify(spyGuessNumberGameService, Mockito.times(1)).startGame();
+
+    }
 }

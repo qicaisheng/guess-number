@@ -14,6 +14,7 @@ public class GuessNumberGameService {
     @Autowired
     private GameRecordMapper gameRecordMapper;
     private static final String ROUND = "round1";
+    private GuessNumberGame guessNumberGame;
 
     public GuessNumberGameService(GameRecordMapper gameRecordMapper) {
         this.gameRecordMapper = gameRecordMapper;
@@ -21,7 +22,9 @@ public class GuessNumberGameService {
     
     
     public CompareResult guess(Answer answer) {
-        startGame();
+        if (this.guessNumberGame == null) {
+            startGame();
+        }
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
         gameRecordMapper.save(new GameRecord(guessHistory, ROUND));
@@ -37,6 +40,6 @@ public class GuessNumberGameService {
     }
 
     public void startGame() {
-        
+        this.guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator());
     }
 }
