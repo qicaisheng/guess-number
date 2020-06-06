@@ -43,7 +43,11 @@ class GuessNumberGameServiceTest {
 
     @Test
     void should_return_save_game_record_when_guess_number() {
-        guessNumberGameService.guess(new Answer("1 2 3 4"));
+        GuessNumberGameService spyGuessNumberGameService = Mockito.spy(new GuessNumberGameService(mockGameRecordMapper));
+        Mockito.doReturn(guessNumberGame).when(spyGuessNumberGameService).getGuessNumberGame();
+        Mockito.doReturn("round").when(spyGuessNumberGameService).getRound();
+
+        spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
 
         ArgumentCaptor<GameRecord> argumentCaptor = ArgumentCaptor.forClass(GameRecord.class);
 
@@ -52,7 +56,7 @@ class GuessNumberGameServiceTest {
         GameRecord gameRecord = argumentCaptor.getValue();
         assertAll(("game record asserts"),
                 () -> assertNotNull(gameRecord),
-                () -> assertEquals("round1", gameRecord.getRound()),
+                () -> assertEquals("round", gameRecord.getRound()),
                 () -> assertEquals("1 2 3 4", gameRecord.getUserGuess()),
                 () -> assertEquals(1, gameRecord.getPositionCorrectNumber()),
                 () -> assertEquals(2, gameRecord.getValueCorrectNumber()),
