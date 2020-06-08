@@ -19,46 +19,46 @@ class GameRecordMapperTest {
 
     @Test
     void should_save_game_record1() {
-        GameRecord gameRecord = new GameRecord();
-        gameRecord.setId("1");
-        gameRecord.setRound("round1");
-        gameRecord.setUserGuess("1 2 3 4");
-        gameRecord.setPositionCorrectNumber(1);
-        gameRecord.setValueCorrectNumber(2);
+        GameRecordDTO gameRecordDto = new GameRecordDTO();
+        gameRecordDto.setId("1");
+        gameRecordDto.setRound("round1");
+        gameRecordDto.setUserGuess("1 2 3 4");
+        gameRecordDto.setPositionCorrectNumber(1);
+        gameRecordDto.setValueCorrectNumber(2);
         
-        gameRecordMapper.save(gameRecord);
+        gameRecordMapper.save(gameRecordDto);
 
-        List<GameRecord> gameRecordList = gameRecordMapper.findGameRecordsByRound("round1");
+        List<GameRecordDTO> gameRecordDTOList = gameRecordMapper.findGameRecordsByRound("round1");
         
-        assertEquals(1, gameRecordList.size());
-        assertNotNull(gameRecordList.get(0));
-        assertEquals("1", gameRecordList.get(0).getId());
-        assertEquals("round1", gameRecordList.get(0).getRound());
-        assertEquals("1 2 3 4", gameRecordList.get(0).getUserGuess());
-        assertEquals(1, gameRecordList.get(0).getPositionCorrectNumber());
-        assertEquals(2, gameRecordList.get(0).getValueCorrectNumber());
+        assertEquals(1, gameRecordDTOList.size());
+        assertNotNull(gameRecordDTOList.get(0));
+        assertEquals("1", gameRecordDTOList.get(0).getId());
+        assertEquals("round1", gameRecordDTOList.get(0).getRound());
+        assertEquals("1 2 3 4", gameRecordDTOList.get(0).getUserGuess());
+        assertEquals(1, gameRecordDTOList.get(0).getPositionCorrectNumber());
+        assertEquals(2, gameRecordDTOList.get(0).getValueCorrectNumber());
     }
 
     @Test
     void should_save_game_record2() {
-        GameRecord gameRecord = new GameRecord();
-        gameRecord.setId("2");
-        gameRecord.setRound("round1");
-        gameRecord.setUserGuess("1 2 3 4");
-        gameRecord.setPositionCorrectNumber(1);
-        gameRecord.setValueCorrectNumber(2);
+        GameRecordDTO gameRecordDto = new GameRecordDTO();
+        gameRecordDto.setId("2");
+        gameRecordDto.setRound("round1");
+        gameRecordDto.setUserGuess("1 2 3 4");
+        gameRecordDto.setPositionCorrectNumber(1);
+        gameRecordDto.setValueCorrectNumber(2);
 
-        gameRecordMapper.save(gameRecord);
+        gameRecordMapper.save(gameRecordDto);
 
-        List<GameRecord> gameRecordList = gameRecordMapper.findGameRecordsByRound("round1");
+        List<GameRecordDTO> gameRecordDTOList = gameRecordMapper.findGameRecordsByRound("round1");
 
-        assertEquals(1, gameRecordList.size());
-        assertNotNull(gameRecordList.get(0));
-        assertEquals("2", gameRecordList.get(0).getId());
-        assertEquals("round1", gameRecordList.get(0).getRound());
-        assertEquals("1 2 3 4", gameRecordList.get(0).getUserGuess());
-        assertEquals(1, gameRecordList.get(0).getPositionCorrectNumber());
-        assertEquals(2, gameRecordList.get(0).getValueCorrectNumber());
+        assertEquals(1, gameRecordDTOList.size());
+        assertNotNull(gameRecordDTOList.get(0));
+        assertEquals("2", gameRecordDTOList.get(0).getId());
+        assertEquals("round1", gameRecordDTOList.get(0).getRound());
+        assertEquals("1 2 3 4", gameRecordDTOList.get(0).getUserGuess());
+        assertEquals(1, gameRecordDTOList.get(0).getPositionCorrectNumber());
+        assertEquals(2, gameRecordDTOList.get(0).getValueCorrectNumber());
     }
 
 }

@@ -1,6 +1,6 @@
 package com.twschool.practice.service;
 
-import com.twschool.practice.GameRecord;
+import com.twschool.practice.GameRecordDTO;
 import com.twschool.practice.GameRecordMapper;
 import com.twschool.practice.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class GuessNumberGameService {
 
         CompareResult guess = getGuessNumberGame().guess(answer);
         GuessHistory guessHistory = new GuessHistory(answer, guess);
-        gameRecordMapper.save(new GameRecord(guessHistory, getRound()));
+        gameRecordMapper.save(new GameRecordDTO(guessHistory, getRound()));
 
         exitGameIfEndGame();
         return guess;

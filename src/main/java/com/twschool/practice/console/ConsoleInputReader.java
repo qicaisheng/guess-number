@@ -6,7 +6,8 @@ public class ConsoleInputReader implements InputReader {
     
     @Override
     public String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        try (Scanner scanner = new Scanner(System.in)) {
+            return scanner.nextLine();
+        }
     }
 }

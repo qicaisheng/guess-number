@@ -4,14 +4,14 @@ import com.twschool.practice.domain.GuessHistory;
 
 import java.util.UUID;
 
-public class GameRecord {
+public class GameRecordDTO {
     private String id;
     private String round;
     private String userGuess;
     private int positionCorrectNumber;
     private int valueCorrectNumber;
 
-    public GameRecord(GuessHistory guessHistory, String round) {
+    public GameRecordDTO(GuessHistory guessHistory, String round) {
         setId(UUID.randomUUID().toString());
         setRound(round);
         setUserGuess(String.join(" ", guessHistory.getInputAnswer().getAnswerNumbers()));
@@ -19,7 +19,7 @@ public class GameRecord {
         setPositionCorrectNumber(guessHistory.getCompareResult().getValueAndPositionCorrectNumber());
     }
 
-    public GameRecord() {
+    public GameRecordDTO() {
     }
 
     public String getId() {

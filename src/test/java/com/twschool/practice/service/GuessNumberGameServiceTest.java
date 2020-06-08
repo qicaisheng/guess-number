@@ -1,6 +1,6 @@
 package com.twschool.practice.service;
 
-import com.twschool.practice.GameRecord;
+import com.twschool.practice.GameRecordDTO;
 import com.twschool.practice.GameRecordMapper;
 import com.twschool.practice.domain.Answer;
 import com.twschool.practice.domain.CompareResult;
@@ -49,18 +49,18 @@ class GuessNumberGameServiceTest {
 
         spyGuessNumberGameService.guess(new Answer("1 2 3 4"));
 
-        ArgumentCaptor<GameRecord> argumentCaptor = ArgumentCaptor.forClass(GameRecord.class);
+        ArgumentCaptor<GameRecordDTO> argumentCaptor = ArgumentCaptor.forClass(GameRecordDTO.class);
 
         Mockito.verify(mockGameRecordMapper, Mockito.times(1)).save(argumentCaptor.capture());
 
-        GameRecord gameRecord = argumentCaptor.getValue();
+        GameRecordDTO gameRecordDto = argumentCaptor.getValue();
         assertAll(("game record asserts"),
-                () -> assertNotNull(gameRecord),
-                () -> assertEquals("round", gameRecord.getRound()),
-                () -> assertEquals("1 2 3 4", gameRecord.getUserGuess()),
-                () -> assertEquals(1, gameRecord.getPositionCorrectNumber()),
-                () -> assertEquals(2, gameRecord.getValueCorrectNumber()),
-                () -> assertNotNull(gameRecord)
+                () -> assertNotNull(gameRecordDto),
+                () -> assertEquals("round", gameRecordDto.getRound()),
+                () -> assertEquals("1 2 3 4", gameRecordDto.getUserGuess()),
+                () -> assertEquals(1, gameRecordDto.getPositionCorrectNumber()),
+                () -> assertEquals(2, gameRecordDto.getValueCorrectNumber()),
+                () -> assertNotNull(gameRecordDto)
         );
 
     }
