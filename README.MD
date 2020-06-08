@@ -38,4 +38,10 @@ guess history
 - given Game with answer 1 2 3 4 and 1 not succeed guess with input 1 5 6 7, when input 2 4 7 8, then output 0A2B and history 1 5 6 7  1A0B\n
 
 generate answer
-  
+
+
+## PMD
+- Use Gradle
+    - run `./gradlew clean pmdMain`
+- Use Maven
+    - run `./mvnw clean pmd:pmd`
