@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.2.0.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-
+    id 'pmd'
 }
 
 group 'com.twschool.practice'
@@ -29,4 +29,33 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+
+pmd {
+    consoleOutput = true
+    toolVersion = "6.21.0"
+    ignoreFailures = true
+    pmdTest.enabled = false
+    ruleSetFiles = files("src/main/resources/pmd/pmd-rulesets.xml") 
+//    ruleSetFiles = resources.text.fromFile("pmd/pmd-rulesets.xml") 
+//    ruleSets = [
+//            'java-basic',
+//            'java-braces',
+//            'java-clone',
+//            'java-codesize',
+////            'java-comments',
+//            'java-controversial',
+//            'java-coupling',
+//            'java-design',
+//            'java-empty',
+//            'java-finalizers',
+//            'java-imports',
+//            'java-optimizations',
+//            'java-strictexception',
+//            'java-strings',
+//            'java-typeresolution',
+//            'java-unnecessary',
+//            'java-unusedcode'
+//    ]
 }
